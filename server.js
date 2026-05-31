@@ -6,7 +6,21 @@ const bcrypt = require("bcryptjs");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const dbPath = process.env.DB_PATH || path.join(__dirname, "circleup-db.json");
+const defaultDbPath = path.join(__dirname, "circleup-db.json");
+const configuredDbPath = process.env.DB_PATH || defaultDbPath;
+
+function resolveDbPath() {
+  try {
+    fs.mkdirSync(path.dirname(configuredDbPath), { recursive: true });
+    fs.accessSync(path.dirname(configuredDbPath), fs.constants.W_OK);
+    return configuredDbPath;
+  } catch (error) {
+    console.warn(`Database path ${configuredDbPath} is not writable. Falling back to ${defaultDbPath}.`);
+    return defaultDbPath;
+  }
+}
+
+const dbPath = resolveDbPath();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
