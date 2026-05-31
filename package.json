@@ -1,0 +1,23 @@
+{
+  "name": "circleup-social",
+  "version": "1.0.0",
+  "description": "CircleUp is a mini social media platform with profiles, posts, comments, likes, and follows.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "social-media",
+    "express",
+    "sqlite",
+    "codealpha"
+  ],
+  "author": "Jasmini Balla",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1"
+  }
+}

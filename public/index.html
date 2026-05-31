@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CircleUp Social</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <button class="brand" data-view="feed" aria-label="Open feed">
+        <span class="brand-mark">C</span>
+        <span>CircleUp</span>
+      </button>
+      <nav class="nav-actions">
+        <button data-view="feed">Feed</button>
+        <button data-view="people">People</button>
+        <button data-view="profile">Profile</button>
+        <button id="logoutBtn" class="ghost hidden">Logout</button>
+      </nav>
+    </header>
+
+    <main class="shell">
+      <aside class="sidebar">
+        <section class="panel" id="authPanel">
+          <div class="panel-head">
+            <h1>Join CircleUp</h1>
+            <p>Share short updates, follow creators, and keep conversations moving.</p>
+          </div>
+          <form id="loginForm" class="stack">
+            <label>
+              Username or email
+              <input name="username" value="jasmini" required />
+            </label>
+            <label>
+              Password
+              <input name="password" type="password" value="demo123" required />
+            </label>
+            <button type="submit">Sign in</button>
+          </form>
+          <details>
+            <summary>Create a new account</summary>
+            <form id="registerForm" class="stack">
+              <input name="name" placeholder="Full name" required />
+              <input name="username" placeholder="Username" required />
+              <input name="email" type="email" placeholder="Email" required />
+              <input name="password" type="password" placeholder="Password" required />
+              <textarea name="bio" placeholder="Short bio"></textarea>
+              <button type="submit">Create account</button>
+            </form>
+          </details>
+        </section>
+
+        <section class="panel hidden" id="sessionPanel">
+          <div class="avatar" id="meAvatar">C</div>
+          <h2 id="meName">Welcome</h2>
+          <p id="meBio"></p>
+          <form id="profileForm" class="stack">
+            <label>
+              Display name
+              <input name="name" required />
+            </label>
+            <label>
+              Bio
+              <textarea name="bio" rows="3"></textarea>
+            </label>
+            <button type="submit">Update profile</button>
+          </form>
+        </section>
+      </aside>
+
+      <section class="content">
+        <section class="composer panel">
+          <form id="postForm">
+            <textarea name="content" rows="3" placeholder="What would you like to share today?"></textarea>
+            <div class="composer-actions">
+              <span id="statusText"></span>
+              <button type="submit">Post</button>
+            </div>
+          </form>
+        </section>
+
+        <section id="feedView" class="view">
+          <div class="section-title">
+            <h2>Community Feed</h2>
+            <p>Recent posts from everyone on CircleUp.</p>
+          </div>
+          <div id="postsList" class="posts"></div>
+        </section>
+
+        <section id="peopleView" class="view hidden">
+          <div class="section-title">
+            <h2>People</h2>
+            <p>Discover profiles and follow interesting members.</p>
+          </div>
+          <div id="peopleList" class="people-grid"></div>
+        </section>
+
+        <section id="profileView" class="view hidden">
+          <div id="profileDetail"></div>
+        </section>
+      </section>
+    </main>
+
+    <template id="postTemplate">
+      <article class="post-card">
+        <div class="post-head">
+          <button class="mini-avatar"></button>
+          <div>
+            <button class="link-button author-name"></button>
+            <p class="muted post-time"></p>
+          </div>
+        </div>
+        <p class="post-content"></p>
+        <div class="post-actions">
+          <button class="like-btn">Like</button>
+          <button class="comment-toggle">Comments</button>
+        </div>
+        <div class="comments hidden">
+          <div class="comments-list"></div>
+          <form class="comment-form">
+            <input name="content" placeholder="Write a comment" />
+            <button type="submit">Send</button>
+          </form>
+        </div>
+      </article>
+    </template>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

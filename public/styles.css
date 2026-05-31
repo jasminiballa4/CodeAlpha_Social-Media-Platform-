@@ -1,0 +1,426 @@
+:root {
+  --bg: #f5f7fb;
+  --surface: #ffffff;
+  --ink: #19202a;
+  --muted: #687386;
+  --line: #dfe5ee;
+  --primary: #0f766e;
+  --primary-dark: #0b5f59;
+  --accent: #eab308;
+  --danger: #b42318;
+  --shadow: 0 18px 50px rgba(34, 49, 71, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    linear-gradient(180deg, rgba(15, 118, 110, 0.12), transparent 310px),
+    var(--bg);
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  border: 0;
+  border-radius: 8px;
+  background: var(--primary);
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+  min-height: 42px;
+  padding: 0 16px;
+}
+
+button:hover {
+  background: var(--primary-dark);
+}
+
+button.ghost,
+.nav-actions button,
+.link-button,
+.mini-avatar {
+  background: transparent;
+  color: var(--ink);
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px clamp(16px, 4vw, 48px);
+  border-bottom: 1px solid rgba(223, 229, 238, 0.8);
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(16px);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+  background: transparent;
+  color: var(--ink);
+  font-size: 1.2rem;
+}
+
+.brand:hover {
+  background: transparent;
+}
+
+.brand-mark,
+.avatar,
+.mini-avatar {
+  display: inline-grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  font-weight: 900;
+}
+
+.brand-mark {
+  width: 38px;
+  height: 38px;
+}
+
+.nav-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.nav-actions button {
+  border: 1px solid transparent;
+}
+
+.nav-actions button.active {
+  border-color: var(--line);
+  background: var(--surface);
+  box-shadow: 0 8px 24px rgba(31, 41, 55, 0.08);
+}
+
+.shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 28px auto 60px;
+  display: grid;
+  grid-template-columns: 330px minmax(0, 1fr);
+  gap: 24px;
+}
+
+.sidebar {
+  align-self: start;
+  position: sticky;
+  top: 92px;
+}
+
+.panel,
+.post-card,
+.person-card,
+.profile-hero {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.panel {
+  padding: 20px;
+}
+
+.panel-head h1,
+.section-title h2,
+.profile-hero h2 {
+  margin: 0;
+  line-height: 1.1;
+}
+
+.panel-head p,
+.section-title p,
+.muted {
+  color: var(--muted);
+}
+
+.stack,
+#postForm,
+.comment-form {
+  display: grid;
+  gap: 12px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fbfcfe;
+  color: var(--ink);
+  padding: 12px 13px;
+  outline: none;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(15, 118, 110, 0.12);
+}
+
+textarea {
+  resize: vertical;
+}
+
+details {
+  margin-top: 16px;
+}
+
+summary {
+  cursor: pointer;
+  color: var(--primary);
+  font-weight: 800;
+}
+
+details form {
+  margin-top: 14px;
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+}
+
+.avatar.large {
+  width: 96px;
+  height: 96px;
+  flex: 0 0 auto;
+  font-size: 2rem;
+}
+
+.content {
+  min-width: 0;
+}
+
+.composer {
+  margin-bottom: 22px;
+}
+
+.composer.disabled {
+  opacity: 0.72;
+}
+
+.composer-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-title {
+  margin: 4px 0 18px;
+}
+
+.section-title.compact {
+  margin-top: 22px;
+}
+
+.posts {
+  display: grid;
+  gap: 16px;
+}
+
+.post-card {
+  padding: 18px;
+}
+
+.post-head {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.mini-avatar {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  flex: 0 0 auto;
+}
+
+.link-button {
+  min-height: auto;
+  padding: 0;
+  font-weight: 900;
+  text-align: left;
+}
+
+.link-button:hover,
+.mini-avatar:hover {
+  background: transparent;
+  color: var(--primary);
+}
+
+.post-content {
+  margin: 16px 0;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.post-actions,
+.stats {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.post-actions button {
+  min-height: 36px;
+  border: 1px solid var(--line);
+  background: #f8fafc;
+  color: var(--ink);
+}
+
+.post-actions button.liked {
+  border-color: rgba(234, 179, 8, 0.65);
+  background: rgba(234, 179, 8, 0.14);
+}
+
+.comments {
+  margin-top: 16px;
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+}
+
+.comments-list {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.comment {
+  display: grid;
+  gap: 3px;
+  border-radius: 8px;
+  background: #f6f8fb;
+  padding: 10px 12px;
+}
+
+.comment-form {
+  grid-template-columns: 1fr auto;
+}
+
+.people-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.person-card {
+  display: grid;
+  gap: 10px;
+  padding: 18px;
+}
+
+.person-card h3,
+.person-card p {
+  margin: 0;
+}
+
+.stats span {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 800;
+  padding: 6px 10px;
+}
+
+.follow-btn {
+  width: fit-content;
+}
+
+.profile-hero {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 24px;
+}
+
+.empty-state {
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  color: var(--muted);
+  padding: 28px;
+  text-align: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.error {
+  color: var(--danger);
+  font-weight: 800;
+}
+
+@media (max-width: 820px) {
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+  }
+
+  .profile-hero {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 520px) {
+  .shell {
+    width: min(100% - 20px, 1180px);
+    margin-top: 16px;
+  }
+
+  .nav-actions {
+    width: 100%;
+  }
+
+  .nav-actions button {
+    flex: 1 1 40%;
+  }
+
+  .composer-actions,
+  .comment-form {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+}

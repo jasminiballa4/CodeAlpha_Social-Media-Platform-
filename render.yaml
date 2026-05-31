@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: circleup-social
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: DB_PATH
+        value: /var/data/circleup-db.json
+    disk:
+      name: circleup-data
+      mountPath: /var/data
+      sizeGB: 1

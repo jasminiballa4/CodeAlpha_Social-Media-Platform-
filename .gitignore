@@ -1,0 +1,7 @@
+node_modules/
+work/
+circleup.sqlite
+*.sqlite
+circleup-db.json
+.env
+npm-debug.log*
