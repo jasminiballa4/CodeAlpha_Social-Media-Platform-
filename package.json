@@ -7,10 +7,12 @@
     "start": "node server.js",
     "dev": "node server.js"
   },
+  "engines": {
+    "node": "20.x"
+  },
   "keywords": [
     "social-media",
     "express",
-    "sqlite",
     "codealpha"
   ],
   "author": "Jasmini Balla",
